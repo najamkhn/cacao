@@ -9,7 +9,6 @@ const modules = {
 };
 const FacebookStrategy = require('passport-facebook').Strategy;
 
-
 module.exports = {
     initialize() {
         this.port = 3000;
@@ -32,8 +31,8 @@ module.exports = {
 
     warmupPlugins() {        
         this.passport.use(new FacebookStrategy({
-            clientID: FACEBOOK_APP_ID,
-            clientSecret: FACEBOOK_APP_SECRET,
+            clientID: this.FACEBOOK_APP_ID,
+            clientSecret: this.FACEBOOK_APP_SECRET,
             callbackURL: "http://localhost:8000/auth/facebook/callback"
         }, (accessToken, refreshToken, profile, done) => {
             console.log('done');
